@@ -65,8 +65,6 @@ extension TasksListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let task = tasksList[indexPath.row]
-        print(tasksList)
-        print(task)
         var content = cell.defaultContentConfiguration()
         content.text = task.title
         cell.contentConfiguration = content
