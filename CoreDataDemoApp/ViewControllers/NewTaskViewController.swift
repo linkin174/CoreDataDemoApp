@@ -7,7 +7,12 @@
 
 import UIKit
 
+
+
 class NewTaskViewController: UIViewController {
+    
+    var delegate: TasksListViewControllerDelegate!
+    
     private lazy var taskTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "New task"
@@ -19,20 +24,19 @@ class NewTaskViewController: UIViewController {
         buttonTitle: "Save Task",
         buttonColor: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
         UIAction { _ in
-            self.dismiss(animated: true)
+            self.saveTask()
         })
     
     private lazy var cancelButton: UIButton = createButton(
         buttonTitle: "Cancel",
         buttonColor: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1),
-        UIAction {_ in
+        UIAction { _ in
             self.dismiss(animated: true)
         })
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray2
-
+        view.backgroundColor = .white
         add(subwiews: taskTextField, saveButton, cancelButton)
         setupConstraints()
     }
@@ -77,9 +81,19 @@ class NewTaskViewController: UIViewController {
         return UIButton(configuration: buttonConfig, primaryAction: action)
     }
     
-    private func saveAction() {}
-    
-    private func cancelAction() {
+    private func saveTask() {
+        let viewContext = StorageManager.shared.persistentContainer.viewContext
+        let task = ToDoTask(context: viewContext)
+        task.title = taskTextField.text
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        delegate.reloadData()
         dismiss(animated: true)
     }
 }
+
