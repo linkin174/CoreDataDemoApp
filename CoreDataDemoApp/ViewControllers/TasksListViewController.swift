@@ -89,7 +89,6 @@ class TasksListViewController: UITableViewController {
         let indexPath = IndexPath(row: index, section: 0)
         tasksList[index].title = taskName
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        storage.saveContext()
     }
 }
 
