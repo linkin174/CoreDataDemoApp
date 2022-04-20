@@ -14,7 +14,6 @@
 		701764A0280E79FE00B2F3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7017649F280E79FE00B2F3A7 /* Assets.xcassets */; };
 		701764A3280E79FE00B2F3A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701764A1280E79FE00B2F3A7 /* LaunchScreen.storyboard */; };
 		701764B1280E7A7E00B2F3A7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701764B0280E7A7E00B2F3A7 /* StorageManager.swift */; };
-		701764B3280E7FEC00B2F3A7 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701764B2280E7FEC00B2F3A7 /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		701764A2280E79FE00B2F3A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701764A4280E79FE00B2F3A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		701764B0280E7A7E00B2F3A7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		701764B2280E7FEC00B2F3A7 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				70176497280E79FD00B2F3A7 /* TasksListViewController.swift */,
-				701764B2280E7FEC00B2F3A7 /* NewTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,7 +184,6 @@
 				7017649E280E79FD00B2F3A7 /* CoreDataDemoApp.xcdatamodeld in Sources */,
 				701764B1280E7A7E00B2F3A7 /* StorageManager.swift in Sources */,
 				70176494280E79FD00B2F3A7 /* AppDelegate.swift in Sources */,
-				701764B3280E7FEC00B2F3A7 /* NewTaskViewController.swift in Sources */,
 				70176496280E79FD00B2F3A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
