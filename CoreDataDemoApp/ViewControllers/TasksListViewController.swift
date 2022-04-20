@@ -12,9 +12,7 @@ class TasksListViewController: UITableViewController {
 
     private let storage = StorageManager.shared
 
-    private var tasksList: [ToDoTask] {
-        storage.fetchData()
-    }
+    private var tasksList: [ToDoTask] = []
 
     private let cellID = "cell"
 
@@ -25,10 +23,15 @@ class TasksListViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         view.backgroundColor = .white
         setupNavBar()
+        fetchTasks()
     }
 
     // MARK: - Private methods
-
+    
+    private func fetchTasks() {
+        tasksList = storage.fetchData()
+    }
+    
     private func setupNavBar() {
         title = "Actual Tasks"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -77,6 +80,7 @@ class TasksListViewController: UITableViewController {
         let task = ToDoTask(context: storage.persistentContainer.viewContext)
         task.title = taskName
         storage.save(task: task)
+        fetchTasks()
         let cellIndex = IndexPath(row: tasksList.count - 1, section: 0)
         tableView.insertRows(at: [cellIndex], with: .automatic)
     }
@@ -117,6 +121,7 @@ extension TasksListViewController {
         let action = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             let task = self.tasksList[indexPath.row]
             self.storage.delete(task: task)
+            self.fetchTasks()
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         return UISwipeActionsConfiguration(actions: [action])
