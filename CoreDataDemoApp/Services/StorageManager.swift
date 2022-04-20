@@ -9,6 +9,7 @@ import CoreData
 import Foundation
 
 class StorageManager {
+    
     static let shared = StorageManager()
 
     // MARK: - Core Data stack
@@ -59,7 +60,6 @@ class StorageManager {
                 print(error)
             }
         }
-        saveContext()
     }
 
     func delete(task: ToDoTask) {
