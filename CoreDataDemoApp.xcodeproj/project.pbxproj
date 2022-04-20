@@ -58,11 +58,11 @@
 		70176492280E79FD00B2F3A7 /* CoreDataDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				701764AB280E7A3600B2F3A7 /* App */,
 				701764AC280E7A5400B2F3A7 /* ViewControllers */,
-				701764AD280E7A5D00B2F3A7 /* Resources */,
 				701764AE280E7A6C00B2F3A7 /* Storyboards */,
 				701764AF280E7A7200B2F3A7 /* Services */,
+				701764AD280E7A5D00B2F3A7 /* Resources */,
+				701764AB280E7A3600B2F3A7 /* App */,
 			);
 			path = CoreDataDemoApp;
 			sourceTree = "<group>";
