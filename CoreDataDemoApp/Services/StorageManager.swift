@@ -13,7 +13,8 @@ class StorageManager {
     static let shared = StorageManager()
 
     // MARK: - Core Data stack
-
+    
+    
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreDataDemoApp")
         container.loadPersistentStores(completionHandler: { _, error in
@@ -23,53 +24,52 @@ class StorageManager {
         })
         return container
     }()
+    
+    private let viewContext: NSManagedObjectContext
 
-    private init() {}
+    private init() {
+        viewContext = persistentContainer.viewContext
+    }
 
     // MARK: - Core Data Saving support
-
+    
     func saveContext() {
-        let context = self.persistentContainer.viewContext
-        if context.hasChanges {
+        if viewContext.hasChanges {
             do {
-                try context.save()
+                try viewContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-
-    func fetchData() -> [ToDoTask] {
-        var taskList: [ToDoTask] = []
+    
+    //MARK: - CRUD
+    
+    func fetchData(completion: (Result<[ToDoTask], Error>) -> Void) {
         let fetchRequest = ToDoTask.fetchRequest()
         do {
-            taskList = try self.persistentContainer.viewContext.fetch(fetchRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
-        return taskList
-    }
-
-    func save(task: ToDoTask) {
-        self.persistentContainer.viewContext.insert(task)
-        if self.persistentContainer.viewContext.hasChanges {
-            do {
-                try self.persistentContainer.viewContext.save()
-            } catch {
-                print(error)
-            }
+            let tasks = try self.viewContext.fetch(fetchRequest)
+            completion(.success(tasks))
+        } catch let error {
+            completion(.failure(error))
         }
     }
-
-    func delete(task: ToDoTask) {
-        self.persistentContainer.viewContext.delete(task)
-        if self.persistentContainer.viewContext.hasChanges {
-            do {
-                try self.persistentContainer.viewContext.save()
-            } catch {
-                print(error)
-            }
-        }
+    
+    func create(_ taskName: String, completion: (ToDoTask) -> Void) {
+        let task = ToDoTask(context: viewContext)
+        task.title = taskName
+        completion(task)
+        saveContext()
+    }
+    
+    func update(_ task: ToDoTask, newName: String) {
+        task.title = newName
+        saveContext()
+    }
+    
+    func delete(_ task: ToDoTask) {
+        viewContext.delete(task)
+        saveContext()
     }
 }

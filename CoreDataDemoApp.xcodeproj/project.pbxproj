@@ -14,6 +14,7 @@
 		701764A0280E79FE00B2F3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7017649F280E79FE00B2F3A7 /* Assets.xcassets */; };
 		701764A3280E79FE00B2F3A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701764A1280E79FE00B2F3A7 /* LaunchScreen.storyboard */; };
 		701764B1280E7A7E00B2F3A7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701764B0280E7A7E00B2F3A7 /* StorageManager.swift */; };
+		70D0819828127852004B0427 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0819728127852004B0427 /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		701764A2280E79FE00B2F3A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701764A4280E79FE00B2F3A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		701764B0280E7A7E00B2F3A7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		70D0819728127852004B0427 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 		70176492280E79FD00B2F3A7 /* CoreDataDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				70D0819628127831004B0427 /* Extensions */,
+				70C3643D281192F400EDDAB4 /* Models */,
 				701764AC280E7A5400B2F3A7 /* ViewControllers */,
 				701764AE280E7A6C00B2F3A7 /* Storyboards */,
 				701764AF280E7A7200B2F3A7 /* Services */,
@@ -104,10 +108,25 @@
 		701764AF280E7A7200B2F3A7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7017649C280E79FD00B2F3A7 /* CoreDataDemoApp.xcdatamodeld */,
 				701764B0280E7A7E00B2F3A7 /* StorageManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		70C3643D281192F400EDDAB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7017649C280E79FD00B2F3A7 /* CoreDataDemoApp.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		70D0819628127831004B0427 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				70D0819728127852004B0427 /* AlertController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +203,7 @@
 				7017649E280E79FD00B2F3A7 /* CoreDataDemoApp.xcdatamodeld in Sources */,
 				701764B1280E7A7E00B2F3A7 /* StorageManager.swift in Sources */,
 				70176494280E79FD00B2F3A7 /* AppDelegate.swift in Sources */,
+				70D0819828127852004B0427 /* AlertController.swift in Sources */,
 				70176496280E79FD00B2F3A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
